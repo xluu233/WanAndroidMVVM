@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 一级主色调-->
+    <attr name="theme_color_1" format="color" />
+    <!-- 二级主色调-->
+    <attr name="theme_color_2" format="color" />
+    <!-- 三级主色调-->
+    <attr name="theme_color_3" format="color" />
+
+    <!-- 点击背景波纹-->
+    <attr name="ripple_gray" format="color" />
+
+    <!-- 背景主色调1-->
+    <attr name="main_bg_1" format="color" />
+    <!-- 背景主色调2-->
+    <attr name="main_bg_2" format="color" />
+    <!-- 背景主色调3-->
+    <attr name="main_bg_3" format="color" />
+
+    <!-- 播放悬浮按钮背景色-->
+    <attr name="float_bg" format="color" />
+
+    <!-- 分割线颜色-->
+    <attr name="division_line" format="color" />
+
+</resources>
