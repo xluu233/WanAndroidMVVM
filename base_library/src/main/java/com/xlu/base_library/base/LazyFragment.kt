@@ -7,7 +7,7 @@ import android.os.Bundle
  * @date 2020/5/9
  * @author zs
  */
-abstract class LazyFragment :BaseVmFragment(){
+abstract class LazyFragment :BaseFragment(){
 
     private var isLoaded = false
     override fun onResume() {

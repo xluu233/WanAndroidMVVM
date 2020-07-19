@@ -47,6 +47,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
     implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -67,8 +68,13 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     // Glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
-
+    //refreshlayout
     api "com.scwang.smartrefresh:SmartRefreshLayout:1.1.2"
     api "com.scwang.smartrefresh:SmartRefreshHeader:1.1.2"
+    implementation 'com.github.hackware1993:MagicIndicator:1.6.0'
+    //tablayout
+    implementation 'com.github.iammert:AnimatedTabLayout:0.1'
+    //cookie持久化
+    api 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
 
 }

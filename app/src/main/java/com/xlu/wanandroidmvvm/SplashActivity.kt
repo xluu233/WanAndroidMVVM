@@ -12,7 +12,7 @@ class SplashActivity : BaseActivity() {
 
     lateinit var timer: Timer
 
-    override fun getLayoutId(): Int?  = R.layout.activity_login
+    override fun getLayoutId(): Int?  = R.layout.activity_start
 
     override fun init(savedInstanceState: Bundle?) {
         changeTheme()
@@ -30,8 +30,6 @@ class SplashActivity : BaseActivity() {
         }
 
     }
-
-
 
 
 

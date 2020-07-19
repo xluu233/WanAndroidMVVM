@@ -16,7 +16,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.xlu.base_library.R
 import com.xlu.base_library.utils.ParamUtil
 
-abstract class BaseVmFragment : Fragment() {
+abstract class BaseFragment : Fragment() {
 
     /**
      * 开放给外部使用

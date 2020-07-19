@@ -3,23 +3,52 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/fragment_main"
+    tools:ignore="UnusedNavigation">
 
     <fragment
+        android:id="@+id/fragment_main"
+        android:name="com.xlu.wanandroidmvvm.ui.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
+
+        <!--登录-->
+        <action
+            android:id="@+id/main_to_login"
+            app:destination="@+id/login"
+            app:enterAnim="@anim/slide_right_in"
+            app:exitAnim="@anim/slide_left_out"
+            app:popEnterAnim="@anim/slide_left_in"
+            app:popExitAnim="@anim/slide_right_out" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/login"
+        android:name="com.xlu.wanandroidmvvm.ui.login.ToLoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_tologin"/>
+
+
+<!--    <fragment
         android:id="@+id/navigation_home"
         android:name="com.xlu.wanandroidmvvm.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.xlu.wanandroidmvvm.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_project"
+        android:name="com.xlu.wanandroidmvvm.ui.project.ProjectFragment"
+        android:label="@string/title_project"
+        tools:layout="@layout/fragment_project" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.xlu.wanandroidmvvm.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_navigation"
+        android:name="com.xlu.wanandroidmvvm.ui.navigation.NavigationFragment"
+        android:label="@string/title_navigation"
+        tools:layout="@layout/fragment_navigation" />-->
+
+
 </navigation>
