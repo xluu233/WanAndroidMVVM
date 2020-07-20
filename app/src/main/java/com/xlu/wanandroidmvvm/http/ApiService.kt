@@ -98,7 +98,8 @@ interface ApiService {
     @FormUrlEncoded
     @POST("/user/login")
     suspend fun login(@Field("username") username: String, @Field("password") password: String): ApiResponse<Userbean>
-    //退出登录
+
+    /*退出登录*/
     @GET("/user/logout/json")
     suspend fun logout():ApiResponse<Any>
 

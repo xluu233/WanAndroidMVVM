@@ -66,8 +66,6 @@ class MainFragment : BaseFragment() {
         }
     }
 
-
-
     override fun init(savedInstanceState: Bundle?) {
         //初始化viewpager2
         vpHome.initFragment(this, fragmentList).run {

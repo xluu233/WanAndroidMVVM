@@ -2,17 +2,9 @@ package com.xlu.wanandroidmvvm.ui.login
 
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.xlu.base_library.base.BaseRepository
 import com.xlu.base_library.base.BaseViewModel
-import com.xlu.base_library.http.ApiException
-import com.xlu.base_library.utils.PrefUtils
 import com.xlu.kotlinandretrofit.bean.Userbean
-import com.xlu.wanandroidmvvm.Constants
-import com.xlu.wanandroidmvvm.http.ApiService
-import com.xlu.wanandroidmvvm.http.RetrofitManager
-import kotlinx.coroutines.CoroutineScope
 
 class LoginViewModel : BaseViewModel() {
 
@@ -29,6 +21,9 @@ class LoginViewModel : BaseViewModel() {
       set(false)
    }
 
+   /**
+    * 登陆
+    */
    val loginLiveData = MutableLiveData<Userbean>()
 
    private val repo by lazy { LoginRepo(viewModelScope,errorLiveData) }

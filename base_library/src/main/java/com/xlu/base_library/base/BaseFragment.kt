@@ -141,7 +141,7 @@ abstract class BaseFragment : Fragment() {
     /**
      * 初始化View以及事件
      */
-    open fun initView() {
+    open fun initView(){
 
     }
 

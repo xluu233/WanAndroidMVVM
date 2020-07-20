@@ -53,7 +53,7 @@ fun ViewPager2.initFragment(
 /**
  * 防止重复点击,可同时注册多个view
  */
-fun setNoRepeatClick(vararg views: View, interval: Long = 400, onClick: (View) -> Unit) {
+fun setNoRepeatClick(vararg views: View, interval: Long = 500, onClick: (View) -> Unit) {
     views.forEach {
         it.clickNoRepeat(interval = interval) { view ->
             onClick.invoke(view)
