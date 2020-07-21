@@ -10,15 +10,16 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:background="?attr/main_bg_1"
-        android:fitsSystemWindows="true">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 
         <EditText
             android:id="@+id/etUsername"
             android:text="@={vm.username}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="@dimen/padding"
@@ -28,8 +29,7 @@
             android:hint="请输入账号"
             android:textColor="?attr/theme_color_1"
             android:textColorHint="?attr/theme_color_3"
-            android:textSize="@dimen/text_1"
-            tools:ignore="MissingConstraints" />
+            android:textSize="@dimen/text_1"/>
 
 
         <ImageView

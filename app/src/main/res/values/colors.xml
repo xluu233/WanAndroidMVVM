@@ -7,7 +7,7 @@
     <!--默认背景颜色-->
     <color name="moren_back">#ebebeb</color>
     <color name="moren">#8A000000</color>
-
+    <color name="white">#FFFFFF</color>
     <!--red-->
 
     <color name="black">#000000</color>

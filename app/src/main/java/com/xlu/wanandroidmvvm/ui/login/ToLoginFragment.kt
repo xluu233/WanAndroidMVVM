@@ -12,8 +12,12 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.xlu.base_library.base.BaseFragment
 import com.xlu.base_library.base.DataBindingConfig
 import com.xlu.wanandroidmvvm.R
+import com.xlu.wanandroidmvvm.adapter.DataBean
+import com.xlu.wanandroidmvvm.adapter.ImageAdapter
 import com.xlu.wanandroidmvvm.databinding.FragmentTologinBinding
 import com.xlu.wanandroidmvvm.ui.register.RegisterFragment
+import com.youth.banner.config.IndicatorConfig
+import com.youth.banner.indicator.CircleIndicator
 
 class ToLoginFragment : BaseFragment() {
 
@@ -34,6 +38,7 @@ class ToLoginFragment : BaseFragment() {
     override fun init(savedInstanceState: Bundle?) {
         val viewPager = binding.loginViewpager
         val tabLayout = binding.loginTab
+        val banner = binding.loginBanner
 
         viewPager.adapter = object : FragmentStateAdapter(this) {
             override fun getItemCount() = 2
@@ -51,6 +56,14 @@ class ToLoginFragment : BaseFragment() {
                 else -> tab.text = "注册"
             }
         }.attach()
+
+
+        //给banner重新设置数据
+        banner.setAdapter(ImageAdapter(DataBean.getTestData()))
+        banner.setLoopTime(5000)
+        //banner.indicator = CircleIndicator(context)
+        //banner.setIndicatorGravity(IndicatorConfig.Direction.CENTER)
+        //TabLayoutMediator(tabLayout, banner)
 
     }
 

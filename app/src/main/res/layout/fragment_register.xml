@@ -1,13 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.register.RegisterFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+    <data>
+        <variable
+            name="vm"
+            type="com.xlu.wanandroidmvvm.ui.register.RegisterViewModel" />
+    </data>
 
-</FrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="?attr/main_bg_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/etUsername"
+            android:text="@={vm.username}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="@dimen/padding"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="@dimen/padding"
+            android:background="@null"
+            android:hint="请输入账号"
+            android:textColor="?attr/theme_color_1"
+            android:textColorHint="?attr/theme_color_3"
+            android:textSize="@dimen/text_1"/>
+
+        <ImageView
+            android:id="@+id/ivClear"
+            app:layout_constraintBottom_toBottomOf="@+id/etUsername"
+            app:layout_constraintRight_toRightOf="@+id/etUsername"
+            app:layout_constraintTop_toTopOf="@+id/etUsername"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ripple_circle_bg"
+            android:padding="10dp"
+            android:src="@drawable/svg_clear" />
+
+        <View
+            app:layout_constraintTop_toBottomOf="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/padding"
+            android:layout_marginRight="@dimen/padding"
+            android:background="?attr/division_line" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:text="@={vm.password}"
+            passType="@{vm.ispasswordVisbility}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="@dimen/padding"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="@dimen/padding"
+            android:background="@null"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:textColor="?attr/theme_color_1"
+            android:textColorHint="?attr/theme_color_3"
+            android:textSize="@dimen/text_1" />
+
+        <ImageView
+            android:id="@+id/ivPasswordVisibility"
+            app:layout_constraintBottom_toBottomOf="@+id/etPassword"
+            app:layout_constraintRight_toRightOf="@+id/etPassword"
+            app:layout_constraintTop_toTopOf="@+id/etPassword"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ripple_circle_bg"
+            passSrc="@{vm.ispasswordVisbility}"
+            android:padding="8dp"
+            android:src="@drawable/selector_pass" />
+
+        <View
+            app:layout_constraintTop_toBottomOf="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/padding"
+            android:layout_marginRight="@dimen/padding"
+            android:background="?attr/division_line" />
+
+
+        <EditText
+            android:id="@+id/etRePassword"
+            android:text="@={vm.repassword}"
+            passType="@{vm.isrepasswordVisbility}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="@dimen/padding"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="@dimen/padding"
+            android:background="@null"
+            android:hint="请再次输入密码"
+            android:inputType="textPassword"
+            android:textColor="?attr/theme_color_1"
+            android:textColorHint="?attr/theme_color_3"
+            android:textSize="@dimen/text_1" />
+
+        <ImageView
+            android:id="@+id/ivRePasswordVisibility"
+            app:layout_constraintBottom_toBottomOf="@+id/etRePassword"
+            app:layout_constraintRight_toRightOf="@+id/etRePassword"
+            app:layout_constraintTop_toTopOf="@+id/etRePassword"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ripple_circle_bg"
+            android:padding="8dp"
+            passSrc="@{vm.isrepasswordVisbility}"
+            android:src="@drawable/selector_pass" />
+
+        <View
+            app:layout_constraintTop_toBottomOf="@+id/ivRePasswordVisibility"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/padding"
+            android:layout_marginRight="@dimen/padding"
+            android:background="?attr/division_line" />
+
+
+        <RelativeLayout
+            android:id="@+id/rlRegister"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etRePassword"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="50dp"
+            android:background="?attr/main_bg_2">
+
+            <TextView
+                android:id="@+id/tvRegisterTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="注册"
+                android:textColor="?attr/theme_color_2"
+                android:textSize="@dimen/text_1"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

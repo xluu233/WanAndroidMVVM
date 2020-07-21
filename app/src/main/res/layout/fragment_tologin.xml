@@ -3,14 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_marginTop="200dp"
+    android:fitsSystemWindows="true"
+    android:background="?attr/main_bg_1"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <com.youth.banner.Banner
+        android:id="@+id/login_banner"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/login_tab"
         app:tabGravity="center"
-        android:layout_width="200dp"
+        android:layout_width="170dp"
         android:layout_height="wrap_content">
 
         <com.google.android.material.tabs.TabItem
