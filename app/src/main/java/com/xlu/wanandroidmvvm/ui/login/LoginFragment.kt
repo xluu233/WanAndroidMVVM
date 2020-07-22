@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.xlu.base_library.base.BaseFragment
 import com.xlu.base_library.base.DataBindingConfig
@@ -77,6 +78,12 @@ class LoginFragment : BaseFragment() {
 
     override fun getDataBindingConfig(): DataBindingConfig? {
         return DataBindingConfig(R.layout.fragment_login, viewModel).addBindingParam(1, viewModel)
+    }
+
+    override fun observe() {
+        viewModel.loginLiveData.observe(this, Observer {
+            nav().navigateUp()
+        })
     }
 
 }

@@ -45,7 +45,7 @@ interface ApiService {
      * 获取首页置顶文章数据
      */
     @GET("/article/top/json")
-    suspend fun getTopList(): ApiResponse<MutableList<TopArticle>>
+    suspend fun getTopList(): ApiResponse<MutableList<Article>>
 
     /**
      * banner
@@ -138,7 +138,7 @@ interface ApiService {
     suspend fun getSearch(@Path("page")pageNum: Int,@Field("k")value:String):ApiResponse<Article>
 
     /*积分排行榜*/
-    @GET("https://www.wanandroid.com/coin/rank/{page}/json")
+    @GET("/coin/rank/{page}/json")
     suspend fun getCoinRank(@Path("page") pageNum: Int = 0) : ApiResponse<CoinRank>
 
     /**

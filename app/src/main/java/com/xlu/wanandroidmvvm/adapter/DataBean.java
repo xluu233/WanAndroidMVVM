@@ -28,7 +28,7 @@ public class DataBean {
         this.imageRes = imageRes;
     }
 
-    public static List<DataBean> getTestData() {
+    public static List<DataBean> getLoginBannerData() {
         List<DataBean> list = new ArrayList<>();
         list.add(new DataBean(R.drawable.login_1));
         list.add(new DataBean(R.drawable.login_2));

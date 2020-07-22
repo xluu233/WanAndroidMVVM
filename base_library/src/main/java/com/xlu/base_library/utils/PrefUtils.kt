@@ -18,10 +18,7 @@ object PrefUtils {
 
     private const val PREF_NAME = "config"
 
-    fun getBoolean(
-        key: String,
-        defaultValue: Boolean
-    ): Boolean {
+    fun getBoolean(key: String, defaultValue: Boolean): Boolean {
         val sp = BaseApp.getContext().getSharedPreferences(
             PREF_NAME,
             Context.MODE_PRIVATE
@@ -30,6 +27,14 @@ object PrefUtils {
     }
 
     fun setBoolean(ctx: Context, key: String, value: Boolean) {
+        val sp = BaseApp.getContext().getSharedPreferences(
+            PREF_NAME,
+            Context.MODE_PRIVATE
+        )
+        sp.edit().putBoolean(key, value).apply()
+    }
+
+    fun setBoolean(key: String, value: Boolean) {
         val sp = BaseApp.getContext().getSharedPreferences(
             PREF_NAME,
             Context.MODE_PRIVATE
@@ -93,13 +98,7 @@ object PrefUtils {
         return sp.getLong(key, defaultValue)
     }
 
-    fun setBoolean(key: String, value: Boolean) {
-        val sp = BaseApp.getContext().getSharedPreferences(
-            PREF_NAME,
-            Context.MODE_PRIVATE
-        )
-        sp.edit().putBoolean(key, value).apply()
-    }
+
 
     fun getString(key: String): String? {
         val sp = BaseApp.getContext().getSharedPreferences(
