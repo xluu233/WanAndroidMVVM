@@ -6,11 +6,6 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import com.xlu.base_library.BaseApp
 
-/**
- * des Toast工具类
- * @date 2020/5/14
- * @author zs
- */
 
 fun Context.toast(content: String, duration: Int = Toast.LENGTH_SHORT) {
     if (TextUtils.isEmpty(content))return

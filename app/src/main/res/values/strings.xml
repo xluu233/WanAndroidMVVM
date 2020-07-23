@@ -15,4 +15,16 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+
+    <string name="article_tag_top">置顶</string>
+    <string name="article_tag_new">新</string>
+    <string name="article_tag_qa">问答</string>
+
+    <!-- article -->
+    <string name="art_author">作者</string>
+    <string name="art_date">2019–08–02</string>
+    <string name="art_title">这里是WanAndroid的文章标题</string>
+    <string name="art_desc">这里是WanAndroid的文章描述：从前有座山，山里有座庙，庙里有个老和尚和小和尚，老和尚对小和尚说：有座山，山里有座庙，庙里有个老和尚和小和尚，老和尚对小和尚说</string>
+    <string name="art_type">干货资源/课程推荐</string>
+
 </resources>

@@ -15,12 +15,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
 
 /**
- * des 视图扩展方法
- * @date 2020/5/14
- * @author zs
- */
-
-/**
  * viewPager适配fragment
  */
 fun ViewPager2.initFragment(
@@ -50,10 +44,12 @@ fun ViewPager2.initFragment(
     return this
 }
 
+
+
 /**
  * 防止重复点击,可同时注册多个view
  */
-fun setNoRepeatClick(vararg views: View, interval: Long = 500, onClick: (View) -> Unit) {
+fun setNoRepeatClick(vararg views: View, interval: Long = 400, onClick: (View) -> Unit) {
     views.forEach {
         it.clickNoRepeat(interval = interval) { view ->
             onClick.invoke(view)
@@ -142,7 +138,6 @@ fun EditText.keyBoardSearch(onClick:()->Unit) {
         return@setOnEditorActionListener true
     }
 }
-
 
 
 

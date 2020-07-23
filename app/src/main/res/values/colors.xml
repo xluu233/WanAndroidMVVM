@@ -56,4 +56,33 @@
     <color name="colorBlue">#16C3D2</color>
     <color name="colorRed">#D92D41</color>
     <color name="colorPurple">#778CF0</color>
+
+    <color name="red">#D24D57</color>
+    <color name="orange">#EB7347</color>
+    <color name="orange_red">#FC9D99</color>
+    <color name="green">#26A65B</color>
+    <color name="green_light">#8cc540</color>
+    <color name="green_dark">#84AF9B</color>
+    <color name="green_grass">#AEDD81</color>
+    <color name="blue">#00CCFF</color>
+    <color name="blue_dark">#019fa0</color>
+    <color name="blue_deep">#007cdc</color>
+    <color name="purple_light">#cd7bdd</color>
+    <color name="purple_deep">#887ddd</color>
+    <color name="pink">#ff5675</color>
+    <color name="yellow">#f8bd0b</color>
+    <color name="gray">#D0D0D0</color>
+
+    <!--custom-->
+    <color name="base_bg_color">@color/white</color>
+    <color name="base_item_tint">@color/gray</color>
+    <color name="text_color_base">@color/white</color>
+    <color name="text_color_second">@color/colorGray</color>
+    <color name="text_color_third">@color/gray</color>
+    <color name="nav_selected">@color/colorPrimary</color>
+    <color name="nav_unselected">@color/gray</color>
+    <color name="color_line_divider">@color/gray</color>
+    <color name="color_pressed">@color/gray</color>
+    <color name="colorPrimaryLight">@color/blue_light</color>
+
 </resources>
