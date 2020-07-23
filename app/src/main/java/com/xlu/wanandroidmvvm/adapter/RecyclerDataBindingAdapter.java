@@ -12,7 +12,7 @@ import com.xlu.wanandroidmvvm.databinding.ItemArticleBinding;
 import org.jetbrains.annotations.NotNull;
 
 
-public class RecyclerDataBindingAdapter extends BaseQuickAdapter<Article, BaseDataBindingHolder<ItemArticleBinding>> {
+public class RecyclerDataBindingAdapter extends BaseQuickAdapter<Article.Data, BaseDataBindingHolder<ItemArticleBinding>> {
 
 
     public RecyclerDataBindingAdapter() {
@@ -21,11 +21,11 @@ public class RecyclerDataBindingAdapter extends BaseQuickAdapter<Article, BaseDa
 
 
     @Override
-    protected void convert(@NotNull BaseDataBindingHolder<ItemArticleBinding> itemArticleBindingBaseDataBindingHolder, Article article) {
+    protected void convert(@NotNull BaseDataBindingHolder<ItemArticleBinding> itemArticleBindingBaseDataBindingHolder, Article.Data data) {
         // 获取 Binding
         ItemArticleBinding binding = itemArticleBindingBaseDataBindingHolder.getDataBinding();
         if (binding != null) {
-            binding.setArticle(article);
+            binding.setArticle(data);
             binding.executePendingBindings();
         }
     }

@@ -13,6 +13,7 @@ import com.xlu.base_library.base.LazyFragment
 import com.xlu.base_library.common.setNoRepeatClick
 import com.xlu.base_library.common.smartConfig
 import com.xlu.base_library.common.smartDismiss
+import com.xlu.kotlinandretrofit.bean.Article
 import com.xlu.wanandroidmvvm.R
 import com.xlu.wanandroidmvvm.adapter.RecyclerDataBindingAdapter
 import com.xlu.wanandroidmvvm.databinding.FragmentHomeBinding
@@ -24,10 +25,10 @@ class HomeFragment : LazyFragment() {
     private lateinit var homeViewModel: HomeViewModel
     private lateinit var binding:FragmentHomeBinding
 
+    private var page = 0
     private var bannerList = mutableListOf<String>()
     private var bannerLinkList = mutableListOf<String>()
-    private var page = 0
-
+    private var articleList = mutableListOf<Article.Data>()
     private val listAdapter = RecyclerDataBindingAdapter()
 
     override fun onCreateView(
@@ -65,9 +66,14 @@ class HomeFragment : LazyFragment() {
         })
 
         homeViewModel.articleList.observe(this, Observer {
-            binding.homeList.layoutManager = LinearLayoutManager(context)
-            binding.homeList.adapter = listAdapter
-            listAdapter.setList(it)
+            Log.d("articleSize:","${it.size}")
+            for (item in it[0].datas){
+                articleList.add(item)
+            }
+            //val list:List<Article.Data> = it.
+            Log.d("articleSize:","${articleList.size}")
+            listAdapter.setList(articleList)
+
         })
 
 
@@ -75,7 +81,18 @@ class HomeFragment : LazyFragment() {
 
     override fun lazyInit() {
         initView()
-        //initBanner()
+        initAdapter()
+    }
+
+    private fun initAdapter() {
+/*        listAdapter.loadMoreModule.setOnLoadMoreListener {
+            page++
+            homeViewModel.getArticleList(false)
+        }*/
+        binding.homeList.layoutManager = LinearLayoutManager(context)
+        binding.homeList.adapter = listAdapter
+
+
     }
 
     override fun initView() {
@@ -96,6 +113,7 @@ class HomeFragment : LazyFragment() {
                 //R.id.clSearch ->
             }
         }
+
     }
 
 

@@ -4,21 +4,24 @@
     android:background="@drawable/ripple_gray">
 
     <data>
+        <import type="android.view.View"/>
+
         <variable
             name="article"
-            type="com.xlu.kotlinandretrofit.bean.Article" />
-<!--        <import type="android.view.View"/>
-        <import type="java.lang.Boolean" />
-        <import type="java.lang.Integer" />-->
+            type="com.xlu.kotlinandretrofit.bean.Article.Data" />
+
         <variable
             name="vm"
             type="com.xlu.wanandroidmvvm.ui.home.HomeViewModel" />
     </data>
 
     <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/header"
@@ -31,110 +34,115 @@
                 android:id="@+id/isTop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="3dp"
                 android:text="@string/article_tag_top"
-                android:background="@drawable/bg_article_top"
-                android:textSize="12sp"
-                android:layout_marginEnd="10dp"
+                android:textSize="11sp"
                 android:textColor="@color/orange_red"
-                isGoneByInt="@{article.Data.type}"/>
+                android:background="@drawable/text_back_3"
+                android:paddingTop="2dp"
+                android:paddingBottom="3dp"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:layout_marginEnd="10dp"
+                android:visibility="@{article.type == 1 ? View.VISIBLE : View.GONE}"/>
 
             <TextView
                 android:id="@+id/tvTagNew"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="3dp"
+                android:paddingTop="2dp"
                 android:paddingBottom="3dp"
                 android:paddingLeft="6dp"
                 android:paddingRight="6dp"
                 android:text="@string/article_tag_new"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/bg_article_new"
-                android:textSize="12sp"
+                android:background="@drawable/text_back_1"
+                android:textSize="11sp"
                 android:textColor="@color/colorPrimary"
-                isGone="@{article.Data.fresh}"/>
+                android:visibility="@{article.fresh ? View.VISIBLE : View.GONE}"/>
 
             <TextView
-                android:id="@+id/tvTagQa"
+                android:id="@+id/tag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="3dp"
-                android:text="@{article.Data.chapterName}"
+                android:paddingTop="2dp"
+                android:paddingBottom="3dp"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/bg_article_qa"
-                android:textSize="12sp"
-                android:textColor="@color/orange"/>
+                android:background="@drawable/text_back_2"
+                android:textSize="11sp"
+                android:textColor="@color/orange"
+                android:text="@{article.superChapterName}"/>
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:text="@{article.niceDate}"
+                android:gravity="end|center_vertical"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="15sp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            tools:text="@string/app_name"
+            android:text="@{article.title}"
+            android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+<!--            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:maxLines="1"
+                android:text="@{article.superChapterName}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:maxLines="1"
+                android:text="/"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:maxLines="1"
+                android:text="@{article.chapterName}" />-->
 
             <TextView
                 android:id="@+id/tvAuthor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:textSize="12sp"
-                tools:text="@{article.Data.author}"
-                android:textColor="@drawable/selector_text"/>
+                android:textSize="11sp"
+                android:text="@{article.author ?? article.chapterName}"/>
 
-            <TextView
-                android:id="@+id/tvDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="@color/text_color_second"
-                android:text="@{article.Data.niceDate}"
-                android:gravity="end|center_vertical"/>
+
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/content"
-            android:orientation="vertical"
-            android:layout_marginTop="@dimen/dp_10"
+
+        <View
+            android:layout_marginTop="10dp"
+            android:background="@color/teal_300"
             android:layout_width="match_parent"
-            android:layout_height="100dp">
-            <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/sp_14"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:text="@{article.Data.title}"
-                android:textColor="#1B1B1B"/>
-
-        </LinearLayout>
-
-        <RelativeLayout
-            android:id="@+id/bottom"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:layout_marginTop="@dimen/dp_10">
-
-            <TextView
-                android:id="@+id/tvType"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="@drawable/selector_text"
-                android:text="@{article.Data.superChapterName}"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"/>
-
-        </RelativeLayout>
-
+            android:layout_height="0.5dp"/>
 
     </LinearLayout>
 
 
-
-
-
-<!--    <View
-        android:id="@+id/viewDivider"
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/gray"
-        android:layout_below="@+id/bottom"
-        android:layout_marginTop="@dimen/dp_10"/>-->
     
 </layout>
