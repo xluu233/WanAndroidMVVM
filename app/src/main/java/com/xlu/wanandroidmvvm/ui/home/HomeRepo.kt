@@ -24,7 +24,7 @@ class HomeRepo(coroutineScope: CoroutineScope, errorLiveData: MutableLiveData<Ap
      */
     fun getArticleList(
         isRefresh: Boolean,
-        articleLiveData: MutableLiveData<MutableList<Article>>,
+        articleLiveData: MutableLiveData<MutableList<Article.Data>>,
         banner: MutableLiveData<MutableList<Banner>>
     ) {
         //仅在第一页或刷新时调用banner和置顶
@@ -39,7 +39,7 @@ class HomeRepo(coroutineScope: CoroutineScope, errorLiveData: MutableLiveData<Ap
     }
 
     /*置顶文章*/
-    fun getTopArticle(articleLiveData: MutableLiveData<MutableList<Article>>){
+    fun getTopArticle(articleLiveData: MutableLiveData<MutableList<Article.Data>>){
         launch(
             block = {
                 RetrofitManager.getApiService(ApiService::class.java)
@@ -54,8 +54,8 @@ class HomeRepo(coroutineScope: CoroutineScope, errorLiveData: MutableLiveData<Ap
 
     /*首页文章*/
     fun getHomeArticle(
-        articleLiveData: MutableLiveData<MutableList<Article>>,
-        list: MutableList<Article>?= null,
+        articleLiveData: MutableLiveData<MutableList<Article.Data>>,
+        list: MutableList<Article.Data>?= null,
         isRefresh: Boolean = false){
         launch(
             block = {
@@ -64,15 +64,14 @@ class HomeRepo(coroutineScope: CoroutineScope, errorLiveData: MutableLiveData<Ap
                     .data()
             },
             success = {
-                list?.add(0,it)
+                list?.addAll(it.datas)
                 //数据累加
                 articleLiveData.value.apply {
-                    val bakcList = mutableListOf<Article>()
+                    //val bakcList = mutableListOf<Article.Data>()
                     if (isRefresh){
-                        bakcList.add(0,it)
-                        articleLiveData.postValue(bakcList)
-                    }else{
                         articleLiveData.postValue(list)
+                    }else{
+                        articleLiveData.postValue(it.datas.toMutableList())
                     }
                 }
             }

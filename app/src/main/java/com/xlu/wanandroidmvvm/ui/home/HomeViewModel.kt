@@ -14,7 +14,7 @@ class HomeViewModel : BaseViewModel() {
     /**
      * 文章列表
      */
-    val articleList = MutableLiveData<MutableList<Article>>()
+    val articleList = MutableLiveData<MutableList<Article.Data>>()
 
     /**
      * banner

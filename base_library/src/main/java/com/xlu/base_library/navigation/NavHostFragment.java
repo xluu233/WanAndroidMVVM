@@ -41,9 +41,9 @@ import com.xlu.base_library.R;
 
 
 /**
- * NavHostFragment provides an area within your layout for self-contained navigation to occur.
+ * NavHostFragment provides an area within your view_banner for self-contained navigation to occur.
  *
- * <p>NavHostFragment is intended to be used as the content area within a layout resource
+ * <p>NavHostFragment is intended to be used as the content area within a view_banner resource
  * defining your app's chrome around it, e.g.:</p>
  *
  * <pre class="prettyprint">

@@ -8,15 +8,16 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.chad.library.adapter.base.BaseQuickAdapter.AnimationType
 import com.xlu.base_library.base.DataBindingConfig
 import com.xlu.base_library.base.LazyFragment
 import com.xlu.base_library.common.setNoRepeatClick
 import com.xlu.base_library.common.smartConfig
 import com.xlu.base_library.common.smartDismiss
-import com.xlu.kotlinandretrofit.bean.Article
 import com.xlu.wanandroidmvvm.R
 import com.xlu.wanandroidmvvm.adapter.RecyclerDataBindingAdapter
 import com.xlu.wanandroidmvvm.databinding.FragmentHomeBinding
+import com.youth.banner.Banner
 import com.youth.banner.config.IndicatorConfig
 import com.youth.banner.indicator.CircleIndicator
 
@@ -28,8 +29,16 @@ class HomeFragment : LazyFragment() {
     private var page = 0
     private var bannerList = mutableListOf<String>()
     private var bannerLinkList = mutableListOf<String>()
-    private var articleList = mutableListOf<Article.Data>()
+    //private var articleList = mutableListOf<Article.Data>()
     private val listAdapter = RecyclerDataBindingAdapter()
+    private var isRefresh:Boolean = false
+
+    private val head by lazy {
+        LayoutInflater.from(mActivity).inflate(R.layout.view_banner, null)
+    }
+    private val banner by lazy {
+        head.findViewById(R.id.banner) as Banner<*, *>
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,10 +48,10 @@ class HomeFragment : LazyFragment() {
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
         binding = FragmentHomeBinding.inflate(inflater,container,false)
         return binding.root
-
     }
 
     override fun observe() {
+        //banner数据
         homeViewModel.banner.observe(this, Observer {
             bannerList.clear()
             bannerLinkList.clear()
@@ -54,28 +63,33 @@ class HomeFragment : LazyFragment() {
                 bannerList.add(listIterator.next().imagePath)
                 //bannerLinkList.add(listIterator.next().url)
             }*/
-
             for (item in it){
                 bannerList.add(item.imagePath)
                 bannerLinkList.add(item.url)
             }
-            //Log.d("image",bannerList.toString())
-            //Log.d("image",bannerLinkList.toString())
+//            Log.d("image",bannerList.toString())
+//            Log.d("image",bannerLinkList.toString())
             initBanner()
             smartDismiss(binding.smartRefresh)
         })
-
+        //文章数据
         homeViewModel.articleList.observe(this, Observer {
             Log.d("articleSize:","${it.size}")
-            for (item in it[0].datas){
-                articleList.add(item)
-            }
-            //val list:List<Article.Data> = it.
-            Log.d("articleSize:","${articleList.size}")
-            listAdapter.setList(articleList)
-
+            smartDismiss(binding.smartRefresh)
+            if (isRefresh) listAdapter.setList(it) else listAdapter.addData(it)
         })
-
+        //请求错误
+        homeViewModel.errorLiveData.observe(this, Observer {
+            smartDismiss(binding.smartRefresh)
+        })
+        //收藏
+        homeViewModel.collectLiveData.observe(this, Observer {
+            //listAdapter.collectNotifyById(it)
+        })
+        //取消收藏
+        homeViewModel.unCollectLiveData.observe(this, Observer {
+            //listAdapter.unCollectNotifyById(it)
+        })
 
     }
 
@@ -85,22 +99,23 @@ class HomeFragment : LazyFragment() {
     }
 
     private fun initAdapter() {
-/*        listAdapter.loadMoreModule.setOnLoadMoreListener {
-            page++
-            homeViewModel.getArticleList(false)
-        }*/
+        binding.homeList.isNestedScrollingEnabled = false
         binding.homeList.layoutManager = LinearLayoutManager(context)
         binding.homeList.adapter = listAdapter
-
-
+        //add Banner
+        listAdapter.addHeaderView(head)
+        //set Anim
+        listAdapter.setAnimationWithDefault(AnimationType.AlphaIn)
     }
 
     override fun initView() {
         binding.smartRefresh.autoRefresh()
         binding.smartRefresh.setOnRefreshListener {
+            isRefresh = true
             homeViewModel.getArticleList(true)
         }
         binding.smartRefresh.setOnLoadMoreListener {
+            isRefresh = false
             page++
             homeViewModel.getArticleList(false)
         }
@@ -117,8 +132,27 @@ class HomeFragment : LazyFragment() {
     }
 
 
+
     private fun initBanner() {
-        val banner = binding.homeBanner
+        /*方式一：直接在布局中写好*/
+/*        val banner = binding.homeBanner
+        val adapter = com.xlu.wanandroidmvvm.adapter.BannerImageAdapter(bannerList.toList())
+        banner.let {
+            it.addBannerLifecycleObserver(this)
+            it.setIndicator(CircleIndicator(context))
+            it.setIndicatorGravity(IndicatorConfig.Direction.CENTER)
+            it.setLoopTime(3000)
+            //it.setBannerRound(20f)
+            it.setBannerGalleryMZ(20);
+            it.adapter = adapter
+            it.setOnBannerListener { data: Any, position: Int ->
+                //点击事件设置
+                Log.d("position:","$position")
+            }
+
+        }*/
+
+        /*方式二：通过在recyclerview-adapter中添加header*/
         val adapter = com.xlu.wanandroidmvvm.adapter.BannerImageAdapter(bannerList.toList())
         banner.let {
             it.addBannerLifecycleObserver(this)
@@ -134,7 +168,6 @@ class HomeFragment : LazyFragment() {
             }
 
         }
-
     }
 
 

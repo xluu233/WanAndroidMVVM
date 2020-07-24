@@ -19,6 +19,9 @@ public class RecyclerDataBindingAdapter extends BaseQuickAdapter<Article.Data, B
         super(R.layout.item_article);
     }
 
+/*    public RecyclerDataBindingAdapter(int dataSize) {
+        super(R.layout.view_banner);
+    }*/
 
     @Override
     protected void convert(@NotNull BaseDataBindingHolder<ItemArticleBinding> itemArticleBindingBaseDataBindingHolder, Article.Data data) {
