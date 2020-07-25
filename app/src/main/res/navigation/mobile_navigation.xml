@@ -21,6 +21,11 @@
             app:popEnterAnim="@anim/slide_left_in"
             app:popExitAnim="@anim/slide_right_out" />
 
+        <!--搜索-->
+        <action
+            android:id="@+id/main_to_search"
+            app:destination="@+id/search"/>
+
     </fragment>
 
     <fragment
@@ -30,25 +35,11 @@
         tools:layout="@layout/fragment_tologin"/>
 
 
-<!--    <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.xlu.wanandroidmvvm.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:view_banner="@view_banner/fragment_home">
-
-    </fragment>
-
     <fragment
-        android:id="@+id/navigation_project"
-        android:name="com.xlu.wanandroidmvvm.ui.project.ProjectFragment"
-        android:label="@string/title_project"
-        tools:view_banner="@view_banner/fragment_project" />
-
-    <fragment
-        android:id="@+id/navigation_navigation"
-        android:name="com.xlu.wanandroidmvvm.ui.navigation.NavigationFragment"
-        android:label="@string/title_navigation"
-        tools:view_banner="@view_banner/fragment_navigation" />-->
+        android:id="@+id/search"
+        android:name="com.xlu.wanandroidmvvm.ui.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search"/>
 
 
 </navigation>

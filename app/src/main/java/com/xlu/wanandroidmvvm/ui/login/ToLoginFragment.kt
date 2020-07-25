@@ -10,8 +10,8 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.xlu.base_library.base.BaseFragment
 import com.xlu.base_library.base.DataBindingConfig
 import com.xlu.wanandroidmvvm.R
-import com.xlu.wanandroidmvvm.adapter.DataBean
-import com.xlu.wanandroidmvvm.adapter.ImageAdapter
+import com.xlu.wanandroidmvvm.ui.banner.DataBean
+import com.xlu.wanandroidmvvm.ui.banner.ImageAdapter
 import com.xlu.wanandroidmvvm.databinding.FragmentTologinBinding
 import com.xlu.wanandroidmvvm.ui.register.RegisterFragment
 

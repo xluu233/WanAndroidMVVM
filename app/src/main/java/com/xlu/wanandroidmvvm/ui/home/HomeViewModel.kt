@@ -24,12 +24,12 @@ class HomeViewModel : BaseViewModel() {
     /**
      * 收藏
      */
-    val collectLiveData = MutableLiveData<Any>()
+    val collectLiveData = MutableLiveData<Int>()
 
     /**
      * 取消收藏
      */
-    val unCollectLiveData = MutableLiveData<Any>()
+    val unCollectLiveData = MutableLiveData<Int>()
 
     /**
      * 获取首页文章列表， 包括banner

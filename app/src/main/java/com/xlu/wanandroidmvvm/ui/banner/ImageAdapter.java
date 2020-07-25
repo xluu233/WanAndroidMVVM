@@ -1,9 +1,11 @@
-package com.xlu.wanandroidmvvm.adapter;
+package com.xlu.wanandroidmvvm.ui.banner;
 
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 
+import com.xlu.wanandroidmvvm.ui.banner.DataBean;
+import com.xlu.wanandroidmvvm.ui.banner.ImageHolder;
 import com.youth.banner.adapter.BannerAdapter;
 
 import java.util.List;

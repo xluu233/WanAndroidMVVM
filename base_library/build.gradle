@@ -92,6 +92,8 @@ dependencies {
     api 'androidx.cardview:cardview:1.0.0'
     //likeButton
     api 'com.github.jd-alexander:LikeButton:0.2.3'
+    //search框记录
+    api 'com.github.donkingliang:LabelsView:1.6.1'
 
     api 'androidx.paging:paging-runtime:2.1.2'
     api 'jp.wasabeef:glide-transformations:4.1.0'
@@ -99,7 +101,6 @@ dependencies {
     api 'cn.bingoogolapple:bga-banner:2.2.7'
     api 'com.github.hackware1993:MagicIndicator:1.6.0'
     api 'pub.devrel:easypermissions:3.0.0'
-    api 'com.github.donkingliang:LabelsView:1.6.1'
 
 
 }

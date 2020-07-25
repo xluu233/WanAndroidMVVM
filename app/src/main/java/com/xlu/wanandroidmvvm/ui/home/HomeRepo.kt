@@ -98,7 +98,7 @@ class HomeRepo(coroutineScope: CoroutineScope, errorLiveData: MutableLiveData<Ap
     /**
      * 收藏
      */
-    fun collect(id:Int,collectLiveData : MutableLiveData<Any>){
+    fun collect(id:Int,collectLiveData : MutableLiveData<Int>){
         launch(
             block = {
                 RetrofitManager.getApiService(ApiService::class.java)
@@ -116,7 +116,7 @@ class HomeRepo(coroutineScope: CoroutineScope, errorLiveData: MutableLiveData<Ap
     /**
      * 取消收藏
      */
-    fun unCollect(id:Int,unCollectLiveData : MutableLiveData<Any>){
+    fun unCollect(id:Int,unCollectLiveData : MutableLiveData<Int>){
         launch(
             block = {
                 RetrofitManager.getApiService(ApiService::class.java)

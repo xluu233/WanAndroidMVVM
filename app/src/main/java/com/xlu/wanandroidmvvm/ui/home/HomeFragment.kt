@@ -9,19 +9,24 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.BaseQuickAdapter.AnimationType
+import com.like.LikeButton
+import com.like.OnLikeListener
 import com.xlu.base_library.base.DataBindingConfig
 import com.xlu.base_library.base.LazyFragment
 import com.xlu.base_library.common.setNoRepeatClick
 import com.xlu.base_library.common.smartConfig
 import com.xlu.base_library.common.smartDismiss
+import com.xlu.base_library.common.toast
+import com.xlu.kotlinandretrofit.bean.Article
 import com.xlu.wanandroidmvvm.R
 import com.xlu.wanandroidmvvm.adapter.RecyclerDataBindingAdapter
 import com.xlu.wanandroidmvvm.databinding.FragmentHomeBinding
+import com.xlu.wanandroidmvvm.utils.LoginUtl
 import com.youth.banner.Banner
 import com.youth.banner.config.IndicatorConfig
 import com.youth.banner.indicator.CircleIndicator
 
-class HomeFragment : LazyFragment() {
+class HomeFragment : LazyFragment(){
 
     private lateinit var homeViewModel: HomeViewModel
     private lateinit var binding:FragmentHomeBinding
@@ -84,11 +89,11 @@ class HomeFragment : LazyFragment() {
         })
         //收藏
         homeViewModel.collectLiveData.observe(this, Observer {
-            //listAdapter.collectNotifyById(it)
+            //listAdapter.collect(it)
         })
         //取消收藏
         homeViewModel.unCollectLiveData.observe(this, Observer {
-            //listAdapter.unCollectNotifyById(it)
+            //listAdapter.unCollec(it)
         })
 
     }
@@ -106,7 +111,59 @@ class HomeFragment : LazyFragment() {
         listAdapter.addHeaderView(head)
         //set Anim
         listAdapter.setAnimationWithDefault(AnimationType.AlphaIn)
+        //listAdapter.setListener(this@HomeFragment)
+        listAdapter.setListener(object : RecyclerDataBindingAdapter.likeListener {
+            override fun unlike(data: Article.Data?, position: Int) {
+                if (LoginUtl.isLogin()){
+                    this@HomeFragment.listAdapter.data[position-1].apply {
+                        homeViewModel.unCollect(id)
+                    }
+                }else{
+                    nav().navigate(R.id.main_to_login)
+                }
+            }
+
+            override fun like(data: Article.Data?, position: Int) {
+                if (LoginUtl.isLogin()){
+                    this@HomeFragment.listAdapter.data[position-1].apply {
+                        homeViewModel.collect(id)
+                    }
+                }else{
+                    nav().navigate(R.id.main_to_login)
+                }
+            }
+        })
+
     }
+
+/*    override fun onItemChildClick(adapter: RecyclerDataBindingAdapter, view: View, position: Int) {
+        when(view.id){
+            R.id.ivLike->{
+                if (LoginUtl.isLogin()){
+                    object : OnLikeListener{
+                        override fun liked(likeButton: LikeButton?) {
+                            toast("collect")
+                            this@HomeFragment.listAdapter.data[position].apply {
+                                homeViewModel.collect(id)
+                            }
+                        }
+
+                        override fun unLiked(likeButton: LikeButton?) {
+                            toast("cancle")
+                            this@HomeFragment.listAdapter.data[position].apply {
+                                homeViewModel.unCollect(position)
+                            }
+                        }
+
+                    }
+                }else{
+                    nav().navigate(R.id.main_to_login)
+                }
+
+            }
+
+        }
+    }*/
 
     override fun initView() {
         binding.smartRefresh.autoRefresh()
@@ -125,7 +182,7 @@ class HomeFragment : LazyFragment() {
                 //分享文章
                 //R.id.add ->
                 //搜索
-                //R.id.clSearch ->
+                R.id.clSearch -> nav().navigate(R.id.main_to_search)
             }
         }
 

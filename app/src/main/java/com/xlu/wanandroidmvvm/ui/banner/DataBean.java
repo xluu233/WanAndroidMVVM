@@ -1,4 +1,4 @@
-package com.xlu.wanandroidmvvm.adapter;
+package com.xlu.wanandroidmvvm.ui.banner;
 
 import com.xlu.wanandroidmvvm.R;
 
