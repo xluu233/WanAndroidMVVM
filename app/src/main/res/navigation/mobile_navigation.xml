@@ -26,20 +26,43 @@
             android:id="@+id/main_to_search"
             app:destination="@+id/search"/>
 
+        <action
+            android:id="@+id/main_to_web"
+            app:destination="@+id/web"/>
+
+
     </fragment>
 
     <fragment
         android:id="@+id/login"
         android:name="com.xlu.wanandroidmvvm.ui.login.ToLoginFragment"
         android:label="LoginFragment"
-        tools:layout="@layout/fragment_tologin"/>
+        tools:layout="@layout/fragment_tologin">
+
+
+    </fragment>
 
 
     <fragment
         android:id="@+id/search"
         android:name="com.xlu.wanandroidmvvm.ui.search.SearchFragment"
         android:label="SearchFragment"
-        tools:layout="@layout/fragment_search"/>
+        tools:layout="@layout/fragment_search">
+
+        <action
+            android:id="@+id/search_to_web"
+            app:destination="@+id/web"/>
+
+
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/web"
+        android:name="com.zs.zs_jetpack.ui.web.WebFragment"
+        android:label="WebFragment"
+        tools:layout="@layout/fragment_web"/>
 
 
 </navigation>

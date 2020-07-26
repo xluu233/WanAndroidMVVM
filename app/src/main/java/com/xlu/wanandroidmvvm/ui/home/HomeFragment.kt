@@ -87,14 +87,6 @@ class HomeFragment : LazyFragment(){
         homeViewModel.errorLiveData.observe(this, Observer {
             smartDismiss(binding.smartRefresh)
         })
-        //收藏
-        homeViewModel.collectLiveData.observe(this, Observer {
-            //listAdapter.collect(it)
-        })
-        //取消收藏
-        homeViewModel.unCollectLiveData.observe(this, Observer {
-            //listAdapter.unCollec(it)
-        })
 
     }
 
@@ -133,6 +125,9 @@ class HomeFragment : LazyFragment(){
                 }
             }
         })
+        listAdapter.setOnItemClickListener { adapter, view, position ->
+            nav().navigate(R.id.main_to_web,this@HomeFragment.listAdapter.getBundle(position))
+        }
 
     }
 

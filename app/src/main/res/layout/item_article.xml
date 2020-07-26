@@ -14,6 +14,7 @@
         <variable
             name="vm"
             type="com.xlu.wanandroidmvvm.ui.home.HomeViewModel" />
+
     </data>
 
     <LinearLayout

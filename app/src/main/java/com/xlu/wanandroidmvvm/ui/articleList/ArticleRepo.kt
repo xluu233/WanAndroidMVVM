@@ -1,68 +1,67 @@
-package com.xlu.wanandroidmvvm.ui.search
+package com.xlu.wanandroidmvvm.ui.articleList
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.xlu.base_library.base.BaseRepository
-import com.xlu.base_library.common.isListEmpty
-import com.xlu.base_library.common.toast
 import com.xlu.base_library.http.ApiException
 import com.xlu.kotlinandretrofit.bean.Article
+import com.xlu.wanandroidmvvm.Constants
 import com.xlu.wanandroidmvvm.http.ApiService
 import com.xlu.wanandroidmvvm.http.RetrofitManager
 import kotlinx.coroutines.CoroutineScope
 
 /**
  * @Author xlu
- * @Date 2020/7/26 0:57
+ * @Date 2020/7/22 23:18
  * @Description TODO
  */
-class SearchRepo(coroutineScope: CoroutineScope,errorLiveData: MutableLiveData<ApiException>) : BaseRepository(coroutineScope,errorLiveData) {
+class ArticleRepo(coroutineScope: CoroutineScope, errorLiveData: MutableLiveData<ApiException>) :
+    BaseRepository(coroutineScope, errorLiveData) {
 
-    private var page = 0
-
-    /**
-     * 搜索
-     */
-    fun search(
-        isRefresh: Boolean = false,
-        keyWord: String,
-        articleLiveData: MutableLiveData<MutableList<Article.Data>>,
-        emptyLiveData: MutableLiveData<Any>
-    ) {
+    private var page = 1;
+    fun getProjectList(
+        type: Int,
+        tabId: Int,
+        refresh: Boolean =false,
+        projectLiveData: MutableLiveData<MutableList<Article.Data>>
+    ){
         launch(
             block = {
-                if (isRefresh) {
-                    page = 0
-                } else {
-                    page++
+                if (refresh) page =1 else page++
+
+                if (type == Constants.PROJECT_TYPE) {
+                    //项目
+                    RetrofitManager.getApiService(ApiService::class.java)
+                        //.getProjectList(page,tabId)
+                        .getProjectClassificationList(page,tabId)
+                        .data()
+                }else{
+                    //微信公总号
+                    RetrofitManager.getApiService(ApiService::class.java)
+                        .getAccountList(tabId,page)
+                        .data()
                 }
-                RetrofitManager.getApiService(ApiService::class.java)
-                    .getSearch(page, keyWord)
-                    .data()
+
             },
             success = {
-                //处理刷新/分页数据
-                articleLiveData.value.apply {
+                projectLiveData.postValue(it.datas.toMutableList())
+                for (item in it.datas){
+                    Log.d("position-repo:",item.desc)
+                }
+/*                projectLiveData.value.apply {
                     //第一次加载 或 刷新 给 articleLiveData 赋予一个空集合
-                    val currentList = if (isRefresh || this == null) {
+                    val currentList = if (refresh || this == null){
                         mutableListOf()
-                    } else {
+                    }else{
                         this
                     }
-                    currentList.addAll(it.datas)
-                    articleLiveData.postValue(currentList)
-                }
-                if (isListEmpty(it.datas)) {
-                    //第一页并且数据为空
-                    if (page == 0) {
-                        emptyLiveData.postValue(Any())
-                    } else {
-                        toast("没有数据啦～")
-                    }
-                }
+                    it.datas?.let { it1 -> currentList.addAll(it1) }
+                    projectLiveData.postValue(currentList)
+                }*/
+
             }
         )
     }
-
 
     /**
      * 收藏
@@ -98,5 +97,7 @@ class SearchRepo(coroutineScope: CoroutineScope,errorLiveData: MutableLiveData<A
             }
         )
     }
+
+
 
 }

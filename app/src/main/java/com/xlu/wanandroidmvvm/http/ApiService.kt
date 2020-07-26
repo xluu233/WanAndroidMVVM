@@ -11,7 +11,7 @@ interface ApiService {
      */
     @GET("/wxarticle/chapters/json")
     //suspend fun getAccountTabList(): ApiResponse<MutableList<Wx.WxList>>
-    suspend fun getAccountTabList(): test
+    suspend fun getAccountTabList(): ApiResponse<MutableList<ProjectClassification>>
 
 
     /**
@@ -19,7 +19,7 @@ interface ApiService {
      * https://wanandroid.com/wxarticle/list/408/1/json
      */
     @GET("/wxarticle/list/{id}/{pageNum}/json")
-    suspend fun getAccountList(@Path("id")cid:Int,@Path("pageNum")pageNum:Int): ApiResponse<Wx.WxArticle>
+    suspend fun getAccountList(@Path("id")cid:Int,@Path("pageNum")pageNum:Int): ApiResponse<Article>
 
     /*
     * 公众号中搜索历史文章
@@ -85,11 +85,12 @@ interface ApiService {
 
     /*项目分类*/
     @GET("/project/tree/json")
-    suspend fun getProjectClassification() : ApiResponse<ProjectClassification>
+    suspend fun getProjectClassification() : ApiResponse<MutableList<ProjectClassification>>
 
     /*项目分类下的数据，cid为项目id*/
-    @GET("/project/list/{page}/json?cid={id}")
-    suspend fun getProjectClassificationList(@Path("page")pageNum: Int,@Path("id")cid:Int) : ApiResponse<Article>
+    @GET("/project/list/{page}/json")
+    suspend fun getProjectClassificationList(@Path("page")pageNum: Int,@Query("cid")cid:Int) : ApiResponse<Article>
+
 
 
     /**
@@ -135,7 +136,7 @@ interface ApiService {
 
     /*搜索*/
     @POST("/article/query/{page}/json")
-    suspend fun getSearch(@Path("page")pageNum: Int,@Field("k")value:String):ApiResponse<Article>
+    suspend fun getSearch(@Path("page")pageNum: Int,@Query("k")value:String):ApiResponse<Article>
 
     /*积分排行榜*/
     @GET("/coin/rank/{page}/json")

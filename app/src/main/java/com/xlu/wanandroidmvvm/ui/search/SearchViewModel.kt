@@ -13,7 +13,9 @@ class SearchViewModel : BaseViewModel() {
     private val repo by lazy { SearchRepo(viewModelScope, errorLiveData) }
 
 
-    val keyWord = ObservableField<String>().apply { set("") }
+    val keyWord = ObservableField<String>().apply {
+        set("")
+    }
 
     /**
      * 搜索到的文章

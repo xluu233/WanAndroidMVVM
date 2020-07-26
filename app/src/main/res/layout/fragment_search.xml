@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.search.SearchFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
             name="vm"
             type="com.xlu.wanandroidmvvm.ui.search.SearchViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,7 +44,8 @@
                     android:scaleType="center"
                     android:src="@mipmap/search"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="TODO" />
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/etSearch"
@@ -70,60 +71,11 @@
                     android:layout_height="32dp"
                     android:layout_marginRight="10dp"
                     android:padding="3dp"
-                    android:src="@drawable/svg_clear"
                     android:visibility="gone"
+                    android:src="@drawable/svg_clear"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/clRecord"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="65dp"
-            android:paddingLeft="@dimen/padding"
-            android:paddingRight="@dimen/padding">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="9dp"
-                android:text="历史搜索"
-                android:textColor="?attr/theme_color_1"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tvClear"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/ripple_bg"
-                android:gravity="center"
-                android:text="清空"
-                android:textColor="?attr/theme_color_2"
-                android:textSize="@dimen/text_2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.donkingliang.labels.LabelsView
-                android:id="@+id/labelsView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tvClear"
-                android:layout_marginTop="5dp"
-                app:labelTextColor="?attr/theme_color_2"
-                app:labelTextPaddingBottom="3dp"
-                app:labelTextPaddingLeft="10dp"
-                app:labelTextPaddingRight="10dp"
-                app:labelTextPaddingTop="3dp"
-                app:labelTextSize="@dimen/text_2"
-                app:layout_constraintTop_toBottomOf="@+id/tvClear"
-                app:lineMargin="16dp"
-                app:selectType="NONE"
-                app:wordMargin="10dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.scwang.smartrefresh.layout.SmartRefreshLayout
@@ -131,7 +83,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="65dp"
-            android:visibility="gone"
             app:srlEnableAutoLoadMore="false"
             app:srlEnableLoadMore="true"
             app:srlEnableOverScrollBounce="true"
