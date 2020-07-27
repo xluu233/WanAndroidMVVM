@@ -1,7 +1,7 @@
 # WanAndroid-MVVM-kotlin
 
 ## 简介：
-此版本WanAndroid采用MVVM架构设计，kotlin语言编写，是对jetpack组件和主流第三方框架的一个实践。后续会不断维护改进，有问题请提交[issues][1]
+此版本WanAndroid采用MVVM架构设计，kotlin语言编写，是对jetpack组件和主流第三方框架的一个实践。后续会不断维护改进，有问题请提交[issues](https://github.com/IMAlex233/WanAndroidMVVM/issues)
 
 采用的主流开发库：
 
@@ -66,20 +66,16 @@
 
  
 ## 项目：
-
- ![此处输入图片的描述][2] ![此处输入图片的描述][3]
-
- ![此处输入图片的描述][4] ![此处输入图片的描述][5]
-
- ![此处输入图片的描述][6]
-
+<figure class="third">
+    <img src="https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-53-59-623_com.xlu.wanand.jpg">
+    <img src="https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-54-04-519_com.xlu.wanand.jpg">
+    <img src="https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-54-07-063_com.xlu.wanand.jpg">
+</figure>
   
   
-
-
-  [1]: https://github.com/IMAlex233/WanAndroidMVVM/issues
-  [2]: https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-53-59-623_com.xlu.wanand.jpg
-  [3]: https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-54-04-519_com.xlu.wanand.jpg
-  [4]: https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-54-07-063_com.xlu.wanand.jpg
-  [5]: https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-54-11-475_com.xlu.wanand.jpg
-  [6]: https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-54-13-749_com.xlu.wanand.jpg
+ <figure class="third">
+    <img src="https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-54-11-475_com.xlu.wanand.jpg">
+    <img src="https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-54-13-749_com.xlu.wanand.jpg">
+    <img src="https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-28-00-35-27-275_com.xlu.wanand.jpg">
+</figure> 
+  
