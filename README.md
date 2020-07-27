@@ -67,8 +67,23 @@
  
 ## 项目：
 
-![描述](https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-53-59-623_com.xlu.wanand.jpg)![描述](https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-54-04-519_com.xlu.wanand.jpg)![描述](https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-54-07-063_com.xlu.wanand.jpg)
+<!--![描述](https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-53-59-623_com.xlu.wanand.jpg)![描述](https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-54-04-519_com.xlu.wanand.jpg)![描述](https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-54-07-063_com.xlu.wanand.jpg)
 
-![描述](https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-54-11-475_com.xlu.wanand.jpg)![描述](https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-54-13-749_com.xlu.wanand.jpg)![描述](https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-28-00-35-27-275_com.xlu.wanand.jpg)
+![描述](https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-54-11-475_com.xlu.wanand.jpg)![描述](https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-54-13-749_com.xlu.wanand.jpg)![描述](https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-28-00-35-27-275_com.xlu.wanand.jpg)-->
 
 
+<table>
+    <tr>
+        <td ><center><img src="https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-53-59-623_com.xlu.wanand.jpg">nav1</center></td>
+        <td ><center><img src="https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-54-04-519_com.xlu.wanand.jpg">nav2</center></td>
+        <td ><center><img src="https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-54-07-063_com.xlu.wanand.jpg">nav2</center></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td ><center><img src="https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-54-11-475_com.xlu.wanand.jpg">nav1</center></td>
+        <td ><center><img src="https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-27-23-54-13-749_com.xlu.wanand.jpg">nav2</center></td>
+        <td ><center><img src="https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/Screenshot_2020-07-28-00-35-27-275_com.xlu.wanand.jpg">nav2</center></td>
+    </tr>
+</table>
