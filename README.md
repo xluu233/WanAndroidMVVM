@@ -1,53 +1,76 @@
 # WanAndroid-MVVM-kotlin
 
-##简介：
+## 简介：
 此版本WanAndroid采用MVVM架构设计，kotlin语言编写，是对jetpack组件和主流第三方框架的一个实践。后续会不断维护改进，有问题请提交[issues][1]
+
 采用的主流开发库：
 
-> **//navigation**
+```
+    //navigation
     api 'androidx.navigation:navigation-fragment:2.3.0'
     api 'androidx.navigation:navigation-ui:2.3.0'
     api 'androidx.navigation:navigation-fragment-ktx:2.3.0'
     api 'androidx.navigation:navigation-ui-ktx:2.3.0'
-    **//lifecycle**
+    //lifecycle
     api 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     api "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-alpha05"
-    **//Kotlin协程核心库**
+    //Kotlin协程核心库
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.7"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7"
-    **// liveData**
+    // liveData
     api 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.0-alpha05'
-    **// viewModel**
+    // viewModel
     api 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-alpha05'
     api 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    **//glide**
+    //glide
     api 'com.github.bumptech.glide:glide:4.11.0'
-    **//okhttp**
+    //rxjava
+    api 'io.reactivex.rxjava2:rxjava:2.2.14'
+    //rxandroid
+    api 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    //okhttp
     api 'com.squareup.okhttp3:okhttp:3.12.3'
     api 'com.squareup.okhttp3:logging-interceptor:3.12.3'
-    **// Retrofit**
+    // Retrofit
     api 'com.squareup.retrofit2:retrofit:2.9.0'
     api 'com.squareup.retrofit2:converter-scalars:2.9.0'
     api 'com.squareup.retrofit2:converter-gson:2.9.0'
     api 'com.squareup.retrofit2:adapter-rxjava2:2.7.2'
-    **//cookie持久化**
+    //cookie持久化
     api 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
-    **//eventBus**
+    //eventBus
     api 'org.greenrobot:eventbus:3.2.0'
-    **//smartFreshLayout**
+    //smartFreshLayout
     api "com.scwang.smartrefresh:SmartRefreshLayout:1.1.2"
     api "com.scwang.smartrefresh:SmartRefreshHeader:1.1.2"
-    **//tablayout**
+    //tablayout
     api 'com.flyco.tablayout:FlycoTabLayout_Lib:3.0.0'
-   
- 
-##项目：
+    //banner
+    api 'com.youth.banner:banner:2.1.0'
+    //recyclerView
+    api 'androidx.recyclerview:recyclerview:1.1.0'
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+    //viewPager
+    api 'androidx.viewpager2:viewpager2:1.0.0'
+    api 'androidx.viewpager:viewpager:1.0.0'
+    //cardView
+    api 'androidx.cardview:cardview:1.0.0'
+    //likeButton
+    api 'com.github.jd-alexander:LikeButton:0.2.3'
+    //search框记录
+    api 'com.github.donkingliang:LabelsView:1.6.1'
+    //flexbox
+    api 'com.google.android:flexbox:2.0.1'
+```
 
- ![此处输入图片的描述][2]
- ![此处输入图片的描述][3]
- ![此处输入图片的描述][4]
- ![此处输入图片的描述][5]
+ 
+## 项目：
+
+ ![此处输入图片的描述][2] ![此处输入图片的描述][3]
+
+ ![此处输入图片的描述][4] ![此处输入图片的描述][5]
+
  ![此处输入图片的描述][6]
 
   
