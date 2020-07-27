@@ -11,7 +11,6 @@ import com.xlu.wanandroidmvvm.R
 import com.xlu.wanandroidmvvm.ui.home.HomeFragment
 import com.xlu.wanandroidmvvm.ui.mine.MineFragment
 import com.xlu.wanandroidmvvm.ui.navigation.NavigationFragment
-import com.xlu.wanandroidmvvm.ui.project.ProjectFragment
 import com.xlu.wanandroidmvvm.ui.tab.TabFragment
 import kotlinx.android.synthetic.main.fragment_main.*
 

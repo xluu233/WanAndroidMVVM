@@ -45,9 +45,9 @@ class ArticleRepo(coroutineScope: CoroutineScope, errorLiveData: MutableLiveData
             },
             success = {
                 projectLiveData.postValue(it.datas.toMutableList())
-                for (item in it.datas){
+/*                for (item in it.datas){
                     Log.d("position-repo:",item.desc)
-                }
+                }*/
 /*                projectLiveData.value.apply {
                     //第一次加载 或 刷新 给 articleLiveData 赋予一个空集合
                     val currentList = if (refresh || this == null){

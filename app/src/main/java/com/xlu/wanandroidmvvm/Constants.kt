@@ -6,6 +6,13 @@ object Constants {
 
 
     const val DEFAULT_TIMEOUT = 10000
+
+    /*体系*/
+    const val NAV_PROJECT = 10
+    /*导航*/
+    const val NAV_NAVIGATION = 20
+
+
     /**
      * 项目/公众号公用一套逻辑。项目标记
      */

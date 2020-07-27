@@ -66,6 +66,13 @@ interface ApiService {
      */
     @GET("/tree/json")
     suspend fun getSystemList() : ApiResponse<MutableList<SystemBean>>
+    /**
+     * 导航数据
+     */
+    @GET("/navi/json")
+    suspend fun getNavigation() : ApiResponse<MutableList<NavigationEntity>>
+
+
 
     /**
      * 获取体系文章列表
@@ -77,11 +84,7 @@ interface ApiService {
     @GET("/article/list/{page}/json?author={author}")
     suspend fun searchArticleFromAuthor(@Path("page")pageNum: Int,@Path("author")author:String) : ApiResponse<Article>
 
-    /**
-     * 导航数据
-     */
-    @GET("/navi/json")
-    fun getNavigation() : ApiResponse<MutableList<NavigationEntity>>
+
 
     /*项目分类*/
     @GET("/project/tree/json")

@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import com.bumptech.glide.Glide
 import com.xlu.base_library.base.DataBindingConfig
 import com.xlu.base_library.base.LazyFragment
 import com.xlu.base_library.common.setNoRepeatClick
 import com.xlu.base_library.utils.PrefUtils
 import com.xlu.kotlinandretrofit.bean.Coin
+import com.xlu.kotlinandretrofit.bean.Userbean
 import com.xlu.wanandroidmvvm.Constants
 import com.xlu.wanandroidmvvm.R
 import com.xlu.wanandroidmvvm.databinding.FragmentMineBinding
@@ -30,6 +32,7 @@ class MineFragment : LazyFragment() {
     private lateinit var viewModel: MineViewModel
     private lateinit var binding: FragmentMineBinding
     private var coin:Coin? = null
+    private var userbean:Userbean? = null
 
 
     override fun onCreateView(
@@ -67,6 +70,8 @@ class MineFragment : LazyFragment() {
         binding.id.setText("")
         binding.coin.setText("0")
         binding.rangking.setText("0")
+        //binding.icon.setImageDrawable(resources.getDrawable(R.drawable.ic_icon))
+
     }
 
     override fun observe() {
@@ -89,6 +94,12 @@ class MineFragment : LazyFragment() {
         binding.id.setText("id:${coin?.userId}")
         binding.coin.setText("${coin?.coinCount}")
         binding.rangking.setText("${coin?.rank}")
+/*        context?.let {
+            Glide.with(it)
+                .load(userbean?.icon)
+                .into(binding.icon)
+        }*/
+
     }
 
     override fun lazyInit() {
@@ -96,6 +107,9 @@ class MineFragment : LazyFragment() {
         PrefUtils.getObject(Constants.INTEGRAL_INFO)?.let {
             //先从本地获取积分，获取不到再通过网络获取
             coin = it as Coin?
+        }
+        PrefUtils.getObject(Constants.USER_INFO)?.let {
+            userbean = it as Userbean?
         }
         if (coin == null) {
             if (LoginUtl.isLogin()) {

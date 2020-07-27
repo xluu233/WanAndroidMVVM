@@ -13,7 +13,6 @@ import com.like.LikeButton;
 import com.like.OnLikeListener;
 import com.xlu.kotlinandretrofit.bean.Article;
 import com.xlu.wanandroidmvvm.R;
-import com.xlu.wanandroidmvvm.databinding.ItemArticleBinding;
 import com.xlu.wanandroidmvvm.databinding.ItemProjectBinding;
 
 import org.jetbrains.annotations.NotNull;

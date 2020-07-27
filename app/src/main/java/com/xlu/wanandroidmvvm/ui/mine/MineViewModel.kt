@@ -17,6 +17,8 @@ class MineViewModel : BaseViewModel() {
     val nickname = ObservableField<String>().apply { set("点击登录") }
     /*等级*/
     val level = ObservableField<String>().apply { set("0") }
+    /*头像*/
+    val icon = ObservableField<String>().apply { set("") }
 
     private val repo by lazy { MineRepo(viewModelScope,errorLiveData) }
     val liveData = MutableLiveData<Coin>()
