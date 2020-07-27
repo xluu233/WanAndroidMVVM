@@ -3,7 +3,7 @@
 ## 简介：
 此版本WanAndroid采用MVVM架构设计，kotlin语言编写，是对jetpack组件和主流第三方框架的一个实践。后续会不断维护改进，有问题请提交[issues](https://github.com/IMAlex233/WanAndroidMVVM/issues)
 
-[下载体验](https://github.com/IMAlex233/WanAndroidMVVM/blob/master/image/app-debug.apk)
+[下载体验](https://github.com/IMAlex233/WanAndroidMVVM/raw/master/image/app-debug.apk)
 
 
 采用的主流开发库：
