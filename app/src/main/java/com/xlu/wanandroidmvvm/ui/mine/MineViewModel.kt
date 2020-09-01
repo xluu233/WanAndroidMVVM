@@ -26,4 +26,10 @@ class MineViewModel : BaseViewModel() {
     fun getInfo(){
         repo.getCoin(liveData)
     }
+
+    val logoutLiveData = MutableLiveData<Any>()
+
+    fun logout(){
+        repo.logout(logoutLiveData)
+    }
 }

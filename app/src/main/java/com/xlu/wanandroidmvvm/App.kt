@@ -1,5 +1,6 @@
 package com.xlu.wanandroidmvvm
 
+import android.annotation.SuppressLint
 import android.content.Context
 import com.scwang.smartrefresh.header.MaterialHeader
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
@@ -13,6 +14,7 @@ class App: BaseApp() {
     override fun onCreate() {
         super.onCreate()
         initSmartHead()
+        instance = applicationContext
     }
 
     /**
@@ -25,5 +27,9 @@ class App: BaseApp() {
         SmartRefreshLayout.setDefaultRefreshFooterCreator { context: Context?, _: RefreshLayout? ->
             BallPulseFooter(context)
         }
+    }
+
+    companion object {
+        lateinit var instance: Context
     }
 }

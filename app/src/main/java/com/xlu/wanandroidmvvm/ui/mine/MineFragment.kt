@@ -1,6 +1,7 @@
 package com.xlu.wanandroidmvvm.ui.mine
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.xlu.base_library.base.DataBindingConfig
 import com.xlu.base_library.base.LazyFragment
 import com.xlu.base_library.common.setNoRepeatClick
+import com.xlu.base_library.common.toast
 import com.xlu.base_library.utils.PrefUtils
 import com.xlu.kotlinandretrofit.bean.Coin
 import com.xlu.kotlinandretrofit.bean.Userbean
@@ -78,6 +80,9 @@ class MineFragment : LazyFragment() {
         viewModel.liveData.observe(this, Observer {
             coin = it
             setDataBinding()
+        })
+        viewModel.logoutLiveData.observe(this, Observer {
+            Log.d("logout","success")
         })
     }
 
@@ -152,7 +157,17 @@ class MineFragment : LazyFragment() {
                 }
                 binding.mySetting ->{
                     //设置
+                    toast("设置")
 
+                }
+                binding.logout ->{
+                    //退出登录
+                    if (LoginUtl.isLogin()) {
+                        viewModel.logout()
+                        toast("请先登录？？")
+                    }else{
+                        toast("请先登录")
+                    }
                 }
             }
         }

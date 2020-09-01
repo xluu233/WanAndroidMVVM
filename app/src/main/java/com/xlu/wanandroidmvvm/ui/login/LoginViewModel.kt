@@ -6,15 +6,18 @@ import androidx.lifecycle.viewModelScope
 import com.xlu.base_library.base.BaseViewModel
 import com.xlu.kotlinandretrofit.bean.Userbean
 
-class LoginViewModel : BaseViewModel() {
 
+class LoginViewModel : BaseViewModel() {
    val username = ObservableField<String>().apply {
-      set("")
+      set("13123")
    }
 
    val password = ObservableField<String>().apply {
-      set("")
+      set("1412")
    }
+
+/*   val username = MutableLiveData<String>()
+   val password = MutableLiveData<String>()*/
 
    //密码可见性
    val passIsVisibility = ObservableField<Boolean>().apply {
@@ -31,5 +34,9 @@ class LoginViewModel : BaseViewModel() {
    fun login(){
       repo.login(username.get()!!,password.get()!!,loginLiveData)
    }
+
+/*   fun login(){
+      repo.login(username.value!!,password.value!!,loginLiveData)
+   }*/
 
 }

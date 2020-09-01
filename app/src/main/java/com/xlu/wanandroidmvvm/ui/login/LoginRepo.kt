@@ -7,6 +7,7 @@ import com.xlu.base_library.http.ApiException
 import com.xlu.base_library.utils.PrefUtils
 import com.xlu.kotlinandretrofit.bean.Userbean
 import com.xlu.wanandroidmvvm.Constants
+import com.xlu.wanandroidmvvm.dao.DBInstance
 import com.xlu.wanandroidmvvm.eventbus.LoginEvent
 import com.xlu.wanandroidmvvm.http.ApiService
 import com.xlu.wanandroidmvvm.http.RetrofitManager
@@ -23,6 +24,7 @@ class LoginRepo(coroutineScope: CoroutineScope, errorLiveData: MutableLiveData<A
                     .data()
             },
             success = {
+                DBInstance.dao.insert(it)
                 //登陆成功保存用户信息，并发送消息
                 PrefUtils.setObject(Constants.USER_INFO,it)
                 //更改登陆轧辊台

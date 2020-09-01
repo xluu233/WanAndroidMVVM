@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -14,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <EditText
             android:id="@+id/etUsername"
             android:text="@={vm.username}"
@@ -27,6 +25,7 @@
             android:layout_marginRight="@dimen/padding"
             android:background="@null"
             android:hint="请输入账号"
+            android:maxLines="1"
             android:textColor="?attr/theme_color_1"
             android:textColorHint="?attr/theme_color_3"
             android:textSize="@dimen/text_1"/>
@@ -63,11 +62,12 @@
             android:layout_marginRight="@dimen/padding"
             android:background="@null"
             android:hint="请输入密码"
-            passType="@{vm.passIsVisibility}"
+            android:maxLines="1"
             android:inputType="textPassword"
             android:textColor="?attr/theme_color_1"
             android:textColorHint="?attr/theme_color_3"
-            android:textSize="@dimen/text_1" />
+            android:textSize="@dimen/text_1"
+            passType="@{vm.passIsVisibility}"/>
 
         <ImageView
             android:id="@+id/ivPasswordVisibility"

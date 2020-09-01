@@ -2,27 +2,20 @@ package com.xlu.wanandroidmvvm.ui.login
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import com.xlu.base_library.base.BaseFragment
 import com.xlu.base_library.base.DataBindingConfig
+import com.xlu.base_library.base.LazyFragment
 import com.xlu.base_library.common.setNoRepeatClick
 import com.xlu.base_library.common.toast
 import com.xlu.base_library.utils.KeyBoardUtil
 import com.xlu.wanandroidmvvm.R
-import com.xlu.wanandroidmvvm.databinding.FragmentLoginBinding
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_login.*
 
 
-class LoginFragment : BaseFragment() {
+class LoginFragment : LazyFragment(){
 
-    private lateinit var viewModel: LoginViewModel
-
-
+    private lateinit var loginViewModel: LoginViewModel
 
     companion object {
         fun newInstance() = LoginFragment()
@@ -32,44 +25,64 @@ class LoginFragment : BaseFragment() {
         return R.layout.fragment_login
     }
 
-    override fun init(savedInstanceState: Bundle?) {
+    override fun lazyInit() {
         initView()
     }
 
     override fun initViewModel() {
-        viewModel = getFragmentViewModel(LoginViewModel::class.java)
-        super.initViewModel()
+        loginViewModel = getFragmentViewModel(LoginViewModel::class.java)
     }
 
+    override fun observe() {
+        loginViewModel.loginLiveData.observe(this, Observer {
+            nav().navigateUp()
+        })
+    }
 
     override fun initView() {
         setNoRepeatClick(etPassword,etUsername,ivClear,ivPasswordVisibility,llLogin) {
             when (it.id) {
                 //清除账号
                 R.id.ivClear -> {
-                    viewModel.username.set("")
-                    viewModel.password.set("")
+                    loginViewModel.username.set("")
+                    loginViewModel.password.set("")
+
+/*                    viewModel.username.postValue("")
+                    viewModel.password.postValue("")*/
+
                 }
                 //密码是否可见
                 R.id.ivPasswordVisibility -> {
                     //true false 切换
-                    viewModel.passIsVisibility.set(!viewModel.passIsVisibility.get()!!)
+                    loginViewModel.passIsVisibility.set(!loginViewModel.passIsVisibility.get()!!)
                 }
                 //登陆
                 R.id.llLogin -> {
                     //关闭软键盘
                     KeyBoardUtil.closeKeyboard(etUsername,mActivity)
                     KeyBoardUtil.closeKeyboard(etPassword,mActivity)
-                    if (viewModel.username.get()!!.isEmpty()){
+
+                    Log.d("tag","username is ${loginViewModel.username.get()},password is ${loginViewModel.password.get()}" )
+                    if (loginViewModel.username.get()!!.isEmpty()){
                         toast("请填写用户名")
                         return@setNoRepeatClick
                     }
-                    if (viewModel.password.get()!!.isEmpty()){
+                    if (loginViewModel.password.get()!!.isEmpty()){
                         toast("请填写密码")
                         return@setNoRepeatClick
                     }
-                    Log.d("tag","username is ${viewModel.username},password is ${viewModel.password}" )
-                    viewModel.login()
+
+/*                    Log.d("tag","username is ${viewModel.username.value},password is ${viewModel.password.value}" )
+                    if (viewModel.username.value!!.isEmpty()){
+                        toast("请填写用户名")
+                        return@setNoRepeatClick
+                    }
+                    if (viewModel.password.value!!.isEmpty()){
+                        toast("请填写密码")
+                        return@setNoRepeatClick
+                    }*/
+
+                    loginViewModel.login()
                 }
             }
         }
@@ -77,13 +90,9 @@ class LoginFragment : BaseFragment() {
 
 
     override fun getDataBindingConfig(): DataBindingConfig? {
-        return DataBindingConfig(R.layout.fragment_login, viewModel).addBindingParam(1, viewModel)
+        return DataBindingConfig(R.layout.fragment_login, loginViewModel).addBindingParam(1, loginViewModel)
     }
 
-    override fun observe() {
-        viewModel.loginLiveData.observe(this, Observer {
-            nav().navigateUp()
-        })
-    }
+
 
 }
